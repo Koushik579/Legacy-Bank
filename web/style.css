@@ -1,0 +1,40 @@
+
+/* 
+    Created on : Dec 18, 2025, 10:15:39 AM
+    Author     : username
+*/
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+#maincont {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+#login,
+#signup {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#signup {
+    background-color: rgb(80, 138, 246);
+    z-index: 2;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+#login {
+    background-color: rgb(167, 88, 241);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
