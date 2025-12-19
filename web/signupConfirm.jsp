@@ -30,11 +30,13 @@
                 if (con != null) {
                     out.println("<h1 style=\"color: green\">JDBC is connected Successfully</h1>");
                     out.println(user + " || " + email + " || " + pass);
-                    String insertdata = "inser into userdetails(username,email,pass) values(?,?,?)";
+                    String insertdata = "insert into userdetails(username,email,pass) values(?,?,?)";
                     PreparedStatement ps = con.prepareStatement(insertdata);
                     ps.setString(1, user);
                     ps.setString(2, email);
                     ps.setString(3, pass);
+                    ps.executeUpdate();
+                    
                     
                 } else {
                     out.println("<h1 style=\"color: red\">JDBC is not connected __ Connection con is **null**</h1><br><br>");
