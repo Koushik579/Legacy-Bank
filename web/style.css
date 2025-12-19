@@ -1,14 +1,8 @@
 
 /* 
     Created on : Dec 18, 2025, 10:15:39 AM
-    Author     : username
+    Author     : Koushik
 */
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-}
 #maincont {
     position: relative;
     display: flex;
@@ -37,4 +31,16 @@ body {
     z-index: 1;
     width: 100%;
     height: 100%;
+}
+#signupcont{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+#signnuppageConfirm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

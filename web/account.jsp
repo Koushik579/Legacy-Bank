@@ -9,6 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="jquery.js"></script>
+        <script src="angular.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="masterStyle.css"/>
+        <link rel="stylesheet" href="style.css" />
         <title>Legacy bank</title>
     </head>
     <body>
