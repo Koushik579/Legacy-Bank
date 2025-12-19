@@ -24,6 +24,11 @@ public class signupConfirm extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+     @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -37,7 +42,7 @@ public class signupConfirm extends HttpServlet {
 
                 if (con != null) {
                     out.println("<h1 style=\"color: green\">JDBC is connected Successfully</h1>");
-                    out.println(user + " || " + email + " || " + pass);
+                   // out.println(user + " || " + email + " || " + pass);
 
                     String insertdata = "insert into userdetails(username,email,pass) values(?,?,?)";
                     PreparedStatement ps = con.prepareStatement(insertdata);
@@ -45,36 +50,18 @@ public class signupConfirm extends HttpServlet {
                     ps.setString(2, email);
                     ps.setString(3, pass);
                     ps.executeUpdate();
+                    
+                    response.sendRedirect("Confirmsignup.jsp");
 
                 } else {
                     out.println("<h1 style=\"color: red\">JDBC is not connected __ Connection con is **null**</h1><br><br>");
-                    out.println(user + " || " + email + " || " + pass);
+                    //out.println(user + " || " + email + " || " + pass);
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>signupConfirm</title><script src=\"jquery.js\"></script>\n"
-                    + "        <script src=\"angular.js\"></script>\n"
-                    + "        <script src=\"script.js\"></script>\n"
-                    + "        <link rel=\"stylesheet\" href=\"masterStyle.css\"/>\n"
-                    + "        <link rel=\"stylesheet\" href=\"style.css\" />");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div id=\"signupcont\">\n"
-                    + "            <form action=\"index.html\" method=\"post\" id=\"signnuppageConfirm\">\n"
-                    + "                <h1>Account Created Successfully</h1>\n"
-                    + "                <u>Redirect to the login page</u>\n"
-                    + "                <br>\n"
-                    + "                <br>\n"
-                    + "                <button type=\"submit\">Login page</button>\n"
-                    + "            </form>\n"
-                    + "        </div>");
-            out.println("</body>");
-            out.println("</html>");
+            
         }
     }
 

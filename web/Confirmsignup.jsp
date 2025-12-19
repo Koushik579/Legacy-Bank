@@ -19,9 +19,14 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <%
-            
-        %>
-        
+        <div id="signupcont">
+            <form action="index.html" method="post" id="signnuppageConfirm">
+                <h1 style="color: green">Account Created Successfully</h1>
+                <u>Redirect to the login page</u>
+                <br>
+                <br>
+                <button type="submit">Login page</button>
+            </form>
+        </div>
     </body>
 </html>
