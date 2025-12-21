@@ -74,24 +74,8 @@ http://localhost:8080/LegacyBank/
 
 ## 📁 Project Structure
 
-Legacy Bank/
-├─ src/
-│ └─ java/
-│ └─ javaClass/
-│ └─ JdbcConnection.java
-├─ web/
-│ ├─ index.html
-│ ├─ account.jsp
-│ ├─ signupConfirm.jsp
-│ ├─ style.css
-│ ├─ script.js
-│ ├─ jquery.js
-│ ├─ angular.js
-│ └─ META-INF/
-├─ build/
-├─ nbproject/
-├─ README.md
-└─ build.xml
+<img width="1024" height="1536" alt="ChatGPT Image Dec 21, 2025, 10_52_57 PM" src="https://github.com/user-attachments/assets/2eca592f-aa7f-43f3-b228-8b3c80fa4079" />
+
 
 
 ---
