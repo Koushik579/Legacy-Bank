@@ -4,8 +4,19 @@
         <servlet-name>signupConfirm</servlet-name>
         <servlet-class>servlets.signupConfirm</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>loginConfirm</servlet-name>
+        <servlet-class>servlets.loginConfirm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>signupConfirm</servlet-name>
         <url-pattern>/signupConfirm</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginConfirm</servlet-name>
+        <url-pattern>/loginConfirm</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

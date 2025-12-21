@@ -14,7 +14,7 @@
         <script src="script.js"></script>
         <link rel="stylesheet" href="masterStyle.css"/>
         <link rel="stylesheet" href="style.css" />
-        <title>Legacy bank</title>
+        <title>ACCOUNT Legacy bank</title>
     </head>
     <body>
         <h1>Account Page</h1>
