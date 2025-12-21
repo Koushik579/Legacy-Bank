@@ -13,10 +13,18 @@
         <script src="angular.js"></script>
         <script src="script.js"></script>
         <link rel="stylesheet" href="masterStyle.css"/>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css" />       
         <title>ACCOUNT Legacy bank</title>
     </head>
     <body>
-        <h1>Account Page</h1>
+        <%
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            response.setHeader("Pragma", "no-cache");
+            response.setDateHeader("Expires", 0);
+        %>
+        <form action="logoutConfirm">
+            <h1>Account Page</h1>
+            <button type="submit">Logout</button>
+        </form>
     </body>
 </html>

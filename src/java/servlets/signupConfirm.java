@@ -24,11 +24,12 @@ public class signupConfirm extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -42,7 +43,7 @@ public class signupConfirm extends HttpServlet {
 
                 if (con != null) {
                     out.println("<h1 style=\"color: green\">JDBC is connected Successfully</h1>");
-                   // out.println(user + " || " + email + " || " + pass);
+                    // out.println(user + " || " + email + " || " + pass);
 
                     String insertdata = "insert into userdetails(username,email,pass) values(?,?,?)";
                     PreparedStatement ps = con.prepareStatement(insertdata);
@@ -50,7 +51,7 @@ public class signupConfirm extends HttpServlet {
                     ps.setString(2, email);
                     ps.setString(3, pass);
                     ps.executeUpdate();
-                    
+
                     response.sendRedirect("Confirmsignup.jsp");
 
                 } else {
@@ -61,7 +62,7 @@ public class signupConfirm extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
+
         }
     }
 

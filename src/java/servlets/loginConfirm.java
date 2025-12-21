@@ -29,16 +29,14 @@ public class loginConfirm extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            response.setHeader("Cache-Control", "no-cache, no-store, nust-revalidate");
-            response.setHeader("Pragma", "no-cache");
-            response.setDateHeader("Expires", 0);
+
             try {
                 HttpSession session = request.getSession();
                 String u = request.getParameter("userid");
                 session.setAttribute("username", u);
-                String p= request.getParameter("pass");
+                String p = request.getParameter("pass");
                 session.setAttribute("password", p);
-                
+
                 String username = session.getAttribute("username").toString();
                 String password = session.getAttribute("password").toString();
                 Connection con = JdbcConnection.connect();
@@ -76,9 +74,10 @@ public class loginConfirm extends HttpServlet {
                     }
 
                 } else {
-                    out.println("Login id or pass wrong");
-                    response.sendRedirect("index.jsp?error=1");
+                    request.setAttribute("error", "Invalid Username or Password");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
                     return;
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
