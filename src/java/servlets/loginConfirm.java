@@ -29,56 +29,34 @@ public class loginConfirm extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            response.setHeader("Pragma", "no-cache");
+            response.setDateHeader("Expires", 0);
             try {
                 HttpSession session = request.getSession();
-                String u = request.getParameter("userid");
-                session.setAttribute("username", u);
                 String p = request.getParameter("pass");
                 session.setAttribute("password", p);
-
-                String username = session.getAttribute("username").toString();
+                String username = request.getParameter("userid");
                 String password = session.getAttribute("password").toString();
                 Connection con = JdbcConnection.connect();
-                String checkusersql = "select 1 from userdetails where username = ?";
-                String checkpasssql = "select pass from userdetails where username = ?";
-                PreparedStatement ps1 = con.prepareStatement(checkusersql);
-                ps1.setString(1, username);
-
-                ResultSet rs1 = ps1.executeQuery();
-                rs1.next();
-
-                boolean isuser = rs1.getBoolean(1);
-
-                if (isuser == true) {
-                    PreparedStatement ps2 = con.prepareStatement(checkpasssql);
-                    ps2.setString(1, username);
-
-                    ResultSet rs2 = ps2.executeQuery();
-
-                    String checkpass = null;
-                    if (rs2.next()) {
-                        checkpass = rs2.getString("pass");
-                        if (password.equals(checkpass)) {
-                            response.sendRedirect("account.jsp");
-                            System.out.println("login Successsful....");
-                            return;
-                        } else {
-                            out.println("Login id or pass wrong");
-                            //System.out.println(password);
-                            //System.out.println(checkpass);
-                            request.setAttribute("error", "Invalid Username or Password");
-                            request.getRequestDispatcher("index.jsp").forward(request, response);
-                            return;
-                        }
+                String sql = "select pass from userdetails where username = ?";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, username);
+                ResultSet rs = ps.executeQuery();
+                String Checkpass = null;
+                if (rs.next()) {
+                    Checkpass = rs.getString("pass");
+                    if (password.equals(Checkpass)) {
+                        response.sendRedirect("account.jsp");
+                        return;
                     }
 
                 } else {
                     request.setAttribute("error", "Invalid Username or Password");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     return;
-
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
