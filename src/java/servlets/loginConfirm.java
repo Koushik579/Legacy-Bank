@@ -29,27 +29,21 @@ public class loginConfirm extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-            response.setHeader("Pragma", "no-cache");
-            response.setDateHeader("Expires", 0);
+
             try {
                 HttpSession session = request.getSession();
-                String p = request.getParameter("pass");
-                session.setAttribute("password", p);
+                String password = request.getParameter("pass");
                 String username = request.getParameter("userid");
-                String password = session.getAttribute("password").toString();
                 Connection con = JdbcConnection.connect();
-                String sql = "select pass from userdetails where username = ?";
+                String sql = "select * from userdetails where username = ? and pass = ?";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, username);
+                ps.setString(2, password);
                 ResultSet rs = ps.executeQuery();
-                String Checkpass = null;
                 if (rs.next()) {
-                    Checkpass = rs.getString("pass");
-                    if (password.equals(Checkpass)) {
-                        response.sendRedirect("account.jsp");
-                        return;
-                    }
+                    session.setAttribute("username", username);
+                    response.sendRedirect("account.jsp");
+                    return;
 
                 } else {
                     request.setAttribute("error", "Invalid Username or Password");

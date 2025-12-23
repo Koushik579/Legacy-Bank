@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="jakarta.servlet.http.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,6 +19,11 @@
     </head>
     <body>
         <%
+            HttpSession ses = request.getSession();
+            if (ses == null || ses.getAttribute("username") == null) {
+                request.setAttribute("error", "Enter a valid Username - Password");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             response.setHeader("Pragma", "no-cache");
             response.setDateHeader("Expires", 0);
