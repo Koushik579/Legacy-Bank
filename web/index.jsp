@@ -56,11 +56,10 @@
                     <input type="text" name="userid"  placeholder="Username"/>
                     <br />
 
-                    <input type="password" name="pass" placeholder="Password" />
+                    <input type="password" name="pass" placeholder="Password" id="pass"/>
                     <br>
                     <div id="imgdiv">
-                        <img src="images/hidepass.png"  id="passimg" onclick="hidepass();" style="height: 32px; width: 32px"/>
-                        <img src="images/showpass.png" id="passimg" onclick="showpass();" style="height: 32px; width: 32px"/>
+                        <img src="images/hidepass.png" id="passimg" onclick="togglepass(this);"/>
                     </div>
                     <br>
                     <p class="errormassage">${error}</p>
