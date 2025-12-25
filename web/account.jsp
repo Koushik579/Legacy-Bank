@@ -19,7 +19,7 @@
     </head>
     <body>
         <%
-            HttpSession ses = request.getSession();
+            HttpSession ses = request.getSession(false);
             if (ses == null || ses.getAttribute("username") == null) {
                 request.setAttribute("error", "Enter a valid Username - Password");
                 request.getRequestDispatcher("index.jsp").forward(request, response);

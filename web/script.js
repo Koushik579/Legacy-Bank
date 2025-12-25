@@ -9,15 +9,16 @@ $(document).ready(function () {
     });
 });
 
-function togglepass(img)
+function togglepass()
 {
     const pass = document.getElementById("pass");
+    const image = document.getElementById("passimg");
     if (pass.type === "password")
     {
         pass.type = "text";
-        img.src = "images/showpass.png";
+        image.src = "images/showpass.png";
     } else {
         pass.type = "password";
-        img.src = "images/hidepass.png";
+        image.src = "images/hidepass.png";
     }
 }

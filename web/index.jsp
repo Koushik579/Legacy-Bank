@@ -30,13 +30,13 @@
                     <h1 style="color: yellow; font-size: 50px; -webkit-text-stroke: 2px black">Legacy Bank</h1>
                     <input type="text" name="fname"  placeholder="First Name"/>
                     <br />
-                    <input type="text" name="mname"  placeholder="Middle Name(Optional)"/>
-                    <br />
                     <input type="text" name="lname"  placeholder="Last Name"/>
                     <br />
                     <input type="text" name="usernm"  placeholder="Create Username"/>
                     <br />
                     <input type="text" name="email"  placeholder="Email Id"/>
+                    <br />
+                    <input type="text" name="phn"  placeholder="Phone Number"/>
                     <br />
                     <input type="text" name="pass1"  placeholder="Password"/>
                     <br />
@@ -51,15 +51,15 @@
             </form>
             <form action="loginConfirm" method="post">
                 <div id="login">
-                    <h1>Login</h1>
+                    <img src="images/hidepass.png" id="passimg" />
                     <br />
                     <input type="text" name="userid"  placeholder="Username"/>
                     <br />
 
                     <input type="password" name="pass" placeholder="Password" id="pass"/>
                     <br>
-                    <div id="imgdiv">
-                        <img src="images/hidepass.png" id="passimg" onclick="togglepass(this);"/>
+                    <div>
+                        <label id="showpassCheck"><input type="checkbox" onclick="togglepass();"/>Show Password</label>
                     </div>
                     <br>
                     <p class="errormassage">${error}</p>
