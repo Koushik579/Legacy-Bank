@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="javaClass.JdbcConnection" %>
+<%@page import="jdbc.JdbcConnection" %>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
     </head>
     <body>
         <div id="signupcont">
-            <form action="index.html" method="post" id="signnuppageConfirm">
+            <form action="index.jsp" method="post" id="signnuppageConfirm">
                 <h1 style="color: green">Account Created Successfully</h1>
                 <u>Redirect to the login page</u>
                 <br>

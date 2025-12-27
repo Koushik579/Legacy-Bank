@@ -6,7 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import javaClass.JdbcConnection;
+import jdbc.JdbcConnection;
 import java.sql.*;
 
 /**
@@ -36,8 +36,12 @@ public class signupConfirm extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             try {
                 String user = request.getParameter("usernm");
-                String email = request.getParameter("email");
+                String fname = request.getParameter("fname");
+                String lname = request.getParameter("lname");
                 String pass = request.getParameter("pass1");
+                String email = request.getParameter("email");
+                String phn = request.getParameter("phn");
+                
 
                 Connection con = JdbcConnection.connect();
 
@@ -45,11 +49,14 @@ public class signupConfirm extends HttpServlet {
                     out.println("<h1 style=\"color: green\">JDBC is connected Successfully</h1>");
                     // out.println(user + " || " + email + " || " + pass);
 
-                    String insertdata = "insert into userdetails(username,email,pass) values(?,?,?)";
+                    String insertdata = "insert into bankusers values(?,?,?,?,?,?)";
                     PreparedStatement ps = con.prepareStatement(insertdata);
                     ps.setString(1, user);
-                    ps.setString(2, email);
-                    ps.setString(3, pass);
+                    ps.setString(2, fname);
+                    ps.setString(3, lname);
+                    ps.setString(4, pass);
+                    ps.setString(5, email);
+                    ps.setString(6, phn);
                     ps.executeUpdate();
 
                     response.sendRedirect("Confirmsignup.jsp");

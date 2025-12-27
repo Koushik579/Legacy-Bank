@@ -1,4 +1,4 @@
-package javaClass;
+package jdbc;
 
 import java.sql.*;
 
@@ -8,8 +8,8 @@ import java.sql.*;
  */
 public class JdbcConnection {
 
-    private static final String url = "jdbc:postgresql://localhost:5432/bankuser";
-    private static String user = "postgres";
+    private static final String url = "jdbc:postgresql://localhost:5432/legecybank";
+    private static String user = "koushik";
     private static String pass = "admin";
 
     public static Connection connect() {

@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import javaClass.JdbcConnection;
+import jdbc.JdbcConnection;
 import java.sql.*;
 
 /**
@@ -35,7 +35,7 @@ public class loginConfirm extends HttpServlet {
                 String password = request.getParameter("pass");
                 String username = request.getParameter("userid");
                 Connection con = JdbcConnection.connect();
-                String sql = "select * from userdetails where username = ? and pass = ?";
+                String sql = "select * from bankusers where uname = ? and pass = ?";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, username);
                 ps.setString(2, password);
