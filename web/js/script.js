@@ -9,16 +9,25 @@ $(document).ready(function () {
     });
 });
 
-function togglepass()
-{
+function toggleloginpass() {
     const pass = document.getElementById("pass");
     const image = document.getElementById("passimg");
+
+    if (pass.type === "password") {
+        pass.type = "text";
+        image.src = image.dataset.show;
+    } else {
+        pass.type = "password";
+        image.src = image.dataset.hide;
+    }
+}
+function togglesignuppass()
+{
+    const pass = document.getElementById("pass2");
     if (pass.type === "password")
     {
         pass.type = "text";
-        image.src = "images/showpass.png";
     } else {
         pass.type = "password";
-        image.src = "images/hidepass.png";
     }
 }

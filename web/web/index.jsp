@@ -11,11 +11,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Legacy Bank</title>
-        <script src="jquery.js"></script>
-        <script src="angular.js"></script>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="masterStyle.css"/>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/masterStyle.css">
+        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/style.css">
+
+        <script src="<%= request.getContextPath()%>/js/jquery.js"></script>
+        <script src="<%= request.getContextPath()%>/js/angular.js"></script>
+        <script src="<%= request.getContextPath()%>/js/script.js"></script>
     </head>
     <body>
         <%
@@ -27,31 +28,40 @@
         <div id="maincont">
             <form action="signupConfirm" method="post">
                 <div id="signup" class="sign">
-                    <h1 style="color: yellow; font-size: 50px; -webkit-text-stroke: 2px black">Legacy Bank</h1>
-                    <input type="text" name="fname"  placeholder="First Name"/>
+                    <h1 style="color: #5CC3FF; font-size: 20px; ">Signup</h1>
+                    <input type="text" name="fname"  placeholder="First Name" required/>
                     <br />
-                    <input type="text" name="lname"  placeholder="Last Name"/>
+                    <input type="text" name="lname"  placeholder="Last Name" required/>
                     <br />
-                    <input type="text" name="usernm"  placeholder="Create Username"/>
+                    <input type="text" name="usernm"  placeholder="Create Username" required/>
                     <br />
-                    <input type="text" name="email"  placeholder="Email Id"/>
+                    <input type="text" name="email"  placeholder="Email Id" required/>
                     <br />
-                    <input type="text" name="phn"  placeholder="Phone Number"/>
+                    <input type="text" name="phn"  placeholder="Phone Number" required/>
                     <br />
-                    <input type="text" name="pass1"  placeholder="Password"/>
+                    <input type="text" name="pass1"  placeholder="Password" required/>
                     <br />
-                    <input type="text" name="pass2" placeholder="Confirm Password"/>
+                    <input type="password" name="pass2" id="pass2" placeholder="Confirm Password" required/>
                     <br />
+                    <div>
+                        <label id="showpassCheck"><input type="checkbox" onclick="togglesignuppass();"/>Show Password</label>
+                    </div>
                     <br />
                     <button type="submit">Signup</button>
                     <br />
+                    <p>${error}</p>
                     <br />
                     <label id="loginpage"><u>Already have an account ?..</u> </label>
                 </div>
             </form>
             <form action="loginConfirm" method="post">
                 <div id="login">
-                    <img src="images/hidepass.png" id="passimg" />
+                    <img 
+                        src="<%= request.getContextPath()%>/images/hidepass.png"
+                        id="passimg"
+                        data-show="<%= request.getContextPath()%>/images/showpass.png"
+                        data-hide="<%= request.getContextPath()%>/images/hidepass.png"
+                        />
                     <br />
                     <input type="text" name="userid"  placeholder="Username"/>
                     <br />
@@ -59,7 +69,7 @@
                     <input type="password" name="pass" placeholder="Password" id="pass"/>
                     <br>
                     <div>
-                        <label id="showpassCheck"><input type="checkbox" onclick="togglepass();"/>Show Password</label>
+                        <label id="showpassCheck"><input type="checkbox" onclick="toggleloginpass();"/>Show Password</label>
                     </div>
                     <br>
                     <p class="errormassage">${error}</p>

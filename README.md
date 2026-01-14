@@ -1,71 +1,78 @@
-# 🏦 Legacy Bank – Web Application (Work in Progress)
+# 🏦 Legacy Bank – Java Web Application
 
-Legacy Bank is a web-based banking application built using **JSP, Java, HTML, CSS, JavaScript, jQuery, and AngularJS**, with **PostgreSQL** as the backend database.  
-The project is currently under development and focuses on building a full-stack banking workflow using Java-based server-side technologies.
+Legacy Bank is a Java-based **bank management web application** developed using **JSP, Servlets, JDBC**, and modern frontend technologies.  
+The project focuses on implementing core banking workflows such as user authentication, account handling, and database interaction using a traditional Java web stack.
 
 ---
 
 ## 🚧 Project Status
 **Work in Progress**
 
-The basic structure and core pages are implemented.  
-Additional features, validations, and security improvements are planned.
+Core functionality is implemented.  
+More banking features, validations, and UI improvements are planned.
 
 ---
 
-## ✨ Current Features
-- 🏠 Landing page (`index.html`)
-- 📝 User signup confirmation page
-- 👤 Account-related JSP pages
-- 🔗 JDBC-based database connection
-- 📄 JSP pages integrated with frontend assets
-- 🎨 Basic UI styling with CSS
-- ⚙️ Client-side scripting using JavaScript & jQuery
-- 🔄 AngularJS included for dynamic behavior
+## ✨ Features
+- 🔐 Secure user signup and login
+- 🔑 Password hashing using BCrypt
+- 🧾 JSP-based dynamic pages
+- 🗄️ Database connectivity using JDBC
+- 🧠 Servlet-based request handling
+- 📊 User account dashboard
+- 🎨 Styled UI using CSS
+- ⚙️ Client-side scripting with JavaScript
+- 🔄 Dynamic behavior using jQuery & AngularJS
 
 ---
 
-## 🛠 Technologies Used
+## 🛠 Tech Stack
 
 ### Frontend
-- HTML5  
-- CSS3  
-- JavaScript  
-- jQuery  
-- AngularJS  
+- HTML5 
+- CSS3 
+- JavaScript 
+- jQuery 
+- AngularJS 
 
 ### Backend
-- Java  
-- JSP (Java Server Pages)  
-- JDBC  
+- Java 
+- JSP (Java Server Pages) 
+- Servlets 
+- JDBC 
 
 ### Database
-- PostgreSQL  
+- PostgreSQL 
+- MySQL (connector included for flexibility)
+
+### Security
+- BCrypt (password encryption)
 
 ### Tools
-- NetBeans IDE  
-- Apache Tomcat  
-- Git & GitHub  
+- NetBeans IDE 
+- Apache Tomcat 
+- Git & GitHub 
 
 ---
 
 ## 🚀 How to Run the Project
 
 ### Prerequisites
-- Java JDK (8 or above)
-- Apache Tomcat
-- PostgreSQL
-- NetBeans (recommended)
+- Java JDK 8 or above 
+- Apache Tomcat 
+- PostgreSQL (or MySQL) 
+- NetBeans IDE (recommended)
 
 ### Steps
 1. Clone the repository
-2. Open the project in NetBeans
-3. Configure PostgreSQL credentials in:
+2. Open the project in **NetBeans**
+3. Configure database credentials in:
 
-src/java/javaClass/JdbcConnection.java
+src/java/com/koushik/jdbc/JdbcConnection.java
 
-4. Start Apache Tomcat from NetBeans
-5. Open in browser:
+4. Ensure the database server is running
+5. Run the project on Tomcat
+6. Open in browser:
 
 http://localhost:8080/LegacyBank/
 
@@ -74,40 +81,64 @@ http://localhost:8080/LegacyBank/
 
 ## 📁 Project Structure
 
-<img width="1024" height="1536" alt="ChatGPT Image Dec 21, 2025, 10_52_57 PM" src="https://github.com/user-attachments/assets/2eca592f-aa7f-43f3-b228-8b3c80fa4079" />
-
+Legacy Bank/
+├─ src/java/
+│ └─ com/koushik/
+│ ├─ jdbc/
+│ │ └─ JdbcConnection.java
+│ └─ servlet/
+│ ├─ confirmation/
+│ │ ├─ loginConfirm.java
+│ │ ├─ logoutConfirm.java
+│ │ └─ signupConfirm.java
+│ └─ updatedb/
+│ └─ Updatedb.java
+├─ web/
+│ ├─ index.jsp
+│ ├─ account.jsp
+│ ├─ Confirmsignup.jsp
+│ ├─ css/
+│ ├─ js/
+│ ├─ images/
+│ └─ WEB-INF/
+│ └─ web.xml
+├─ build/
+├─ nbproject/
+├─ README.md
+└─ build.xml
 
 
 ---
 
 ## 🎯 Learning Objectives
-- Build a Java-based web application using JSP
-- Integrate frontend technologies with server-side Java
-- Connect and interact with PostgreSQL using JDBC
-- Understand MVC-style separation in web apps
-- Practice full-stack development concepts
-- Use GitHub for version control and project tracking
+- Build Java web applications using JSP & Servlets
+- Implement authentication systems securely
+- Work with relational databases using JDBC
+- Integrate frontend technologies with backend Java
+- Understand MVC-style architecture
+- Practice full-stack Java development
 
 ---
 
-## 🔮 Planned Features
-- 🔐 User authentication & login
+## 🔮 Planned Enhancements
 - 💳 Account balance & transaction handling
 - 🧾 Transaction history
-- ✅ Input validation & exception handling
-- 🛡️ Security improvements
-- 📱 UI/UX enhancements
-- 🔄 Better AngularJS integration
+- 🔁 Fund transfers
+- 🛡️ Improved session management
+- ⚠️ Better exception handling & logging
+- 📱 UI/UX improvements
+- 🔐 Role-based access control
 
 ---
 
 ## 👤 Author
-**Koushik Karmakar**  
-B.Tech Civil Engineering Student  
-Learning **Java Backend Development**, JSP, Databases & Full-Stack Web Development
+**Koushik Karmakar** 
+B.Tech Civil Engineering Student 
+Learning **Java Backend Development**, Databases & Full-Stack Web Applications
 
 ---
 
 ## 📌 Notes
-This project is part of my learning journey in Java web development.  
-Code structure and features will evolve as new concepts are learned and implemented.
+This project is part of my learning journey in Java web development. 
+The codebase will continue to evolve as new concepts and best practices are applied.
+

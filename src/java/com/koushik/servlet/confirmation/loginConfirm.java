@@ -1,4 +1,4 @@
-package servlets;
+package com.koushik.servlet.confirmation;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,8 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import jdbc.JdbcConnection;
+import com.koushik.jdbc.JdbcConnection;
 import java.sql.*;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -16,15 +17,6 @@ import java.sql.*;
  */
 public class loginConfirm extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -32,22 +24,27 @@ public class loginConfirm extends HttpServlet {
 
             try {
                 HttpSession session = request.getSession();
-                String password = request.getParameter("pass");
                 String username = request.getParameter("userid");
+                String pass = request.getParameter("pass");
                 Connection con = JdbcConnection.connect();
-                String sql = "select * from bankusers where uname = ? and pass = ?";
+                String sql = "select pass from customers where uname = ?";
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, username);
-                ps.setString(2, password);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
-                    session.setAttribute("username", username);
-                    response.sendRedirect("account.jsp");
-                    return;
-
+                    String storedpass = rs.getString("pass");
+                    if (BCrypt.checkpw(pass, storedpass)) {
+                        session.setAttribute("username", username);
+                        response.sendRedirect(request.getContextPath() + "/web/account.jsp");
+                        return;
+                    } else {
+                        request.setAttribute("error", "Invalid Username or Password");
+                        request.getRequestDispatcher("/web/index.jsp").forward(request, response);
+                        return;
+                    }
                 } else {
                     request.setAttribute("error", "Invalid Username or Password");
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.getRequestDispatcher("/web/index.jsp").forward(request, response);
                     return;
                 }
 

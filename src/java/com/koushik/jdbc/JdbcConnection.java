@@ -1,4 +1,4 @@
-package jdbc;
+package com.koushik.jdbc;
 
 import java.sql.*;
 

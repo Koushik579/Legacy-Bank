@@ -5,22 +5,23 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="jdbc.JdbcConnection" %>
+<%@page import="com.koushik.jdbc.JdbcConnection" %>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Signup Page</title>
-        <script src="jquery.js"></script>
-        <script src="angular.js"></script>
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="masterStyle.css"/>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/masterStyle.css">
+        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/style.css">
+
+        <script src="<%= request.getContextPath()%>/js/jquery.js"></script>
+        <script src="<%= request.getContextPath()%>/js/angular.js"></script>
+        <script src="<%= request.getContextPath()%>/js/script.js"></script>
     </head>
     <body>
         <div id="signupcont">
-            <form action="index.jsp" method="post" id="signnuppageConfirm">
+            <form action="<%= request.getContextPath()%>/web/index.jsp" method="post" id="signnuppageConfirm">
                 <h1 style="color: green">Account Created Successfully</h1>
                 <u>Redirect to the login page</u>
                 <br>

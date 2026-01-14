@@ -1,4 +1,8 @@
-package servlets;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package com.koushik.servlet.updatedb;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,35 +10,18 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.*;
-
+import java.sql.*;
+import com.koushik.servlet.updatedb.Updatedb;
 /**
  *
- * @author Koushik
+ * @author username
  */
-public class logoutConfirm extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+public class Updatedb extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession(false);
-            if (session != null) {
-                session.invalidate();
-            }
-            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-            response.setHeader("Pragma", "no-cache");
-            response.setDateHeader("Expires", 0);
-            response.sendRedirect("index.jsp");
+            out.println("<h1>UpdateDb Page</h1>");
         }
     }
 

@@ -2,15 +2,19 @@
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
         <servlet-name>signupConfirm</servlet-name>
-        <servlet-class>servlets.signupConfirm</servlet-class>
+        <servlet-class>com.koushik.servlet.confirmation.signupConfirm</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>loginConfirm</servlet-name>
-        <servlet-class>servlets.loginConfirm</servlet-class>
+        <servlet-class>com.koushik.servlet.confirmation.loginConfirm</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>logoutConfirm</servlet-name>
-        <servlet-class>servlets.logoutConfirm</servlet-class>
+        <servlet-class>com.koushik.servlet.confirmation.logoutConfirm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Updatedb</servlet-name>
+        <servlet-class>com.koushik.servlet.updatedb.Updatedb</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>signupConfirm</servlet-name>
@@ -24,7 +28,11 @@
         <servlet-name>logoutConfirm</servlet-name>
         <url-pattern>/logoutConfirm</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Updatedb</servlet-name>
+        <url-pattern>/Updatedb</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/web/index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
