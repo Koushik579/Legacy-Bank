@@ -1,66 +1,76 @@
 # 🏦 Legacy Bank – Java Web Application
 
-Legacy Bank is a Java-based **bank management web application** developed using **JSP, Servlets, JDBC**, and modern frontend technologies.  
-The project focuses on implementing core banking workflows such as user authentication, account handling, and database interaction using a traditional Java web stack.
+Legacy Bank is a Java-based **bank management web application** built using **JSP, Servlets, JDBC**, and modern frontend technologies.  
+The project implements core banking workflows including **secure authentication, full CRUD operations, and database-driven account management** using a traditional Java web stack.
 
 ---
 
 ## 🚧 Project Status
-**Work in Progress**
+**Active Development**
 
-Core functionality is implemented.  
-More banking features, validations, and UI improvements are planned.
+Core banking functionality including CRUD operations and validation is implemented.  
+Further security hardening and feature expansion are planned.
 
 ---
 
 ## ✨ Features
-- 🔐 Secure user signup and login
-- 🔑 Password hashing using BCrypt
-- 🧾 JSP-based dynamic pages
-- 🗄️ Database connectivity using JDBC
-- 🧠 Servlet-based request handling
-- 📊 User account dashboard
-- 🎨 Styled UI using CSS
-- ⚙️ Client-side scripting with JavaScript
-- 🔄 Dynamic behavior using jQuery & AngularJS
+
+### 🔐 Authentication & Security
+- Secure user signup and login
+- Password hashing using **BCrypt**
+- Session-based authentication
+- Login validation and access control
+
+### 🧾 CRUD Operations
+- **Create:** User account creation via signup
+- **Read:** Account details displayed on `account.jsp`
+- **Update:** Account data modification via update flow
+- **Delete:** Account deletion functionality
+- JDBC-based database interaction
+
+### 🎨 UI & Client-side
+- Improved UI styling with CSS
+- Client-side form validation using JavaScript
+- Dynamic behavior using **jQuery** and **AngularJS**
+- Password visibility toggle & form feedback
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Frontend
-- HTML5 
-- CSS3 
-- JavaScript 
-- jQuery 
-- AngularJS 
+- HTML5
+- CSS3
+- JavaScript
+- jQuery
+- AngularJS
 
 ### Backend
-- Java 
-- JSP (Java Server Pages) 
-- Servlets 
-- JDBC 
+- Java
+- JSP (Java Server Pages)
+- Servlets
+- JDBC
 
 ### Database
-- PostgreSQL 
-- MySQL (connector included for flexibility)
+- PostgreSQL  
+- MySQL (connector included)
 
 ### Security
 - BCrypt (password encryption)
 
 ### Tools
-- NetBeans IDE 
-- Apache Tomcat 
-- Git & GitHub 
+- NetBeans IDE
+- Apache Tomcat
+- Git & GitHub
 
 ---
 
 ## 🚀 How to Run the Project
 
 ### Prerequisites
-- Java JDK 8 or above 
-- Apache Tomcat 
-- PostgreSQL (or MySQL) 
+- Java JDK 8 or above
+- Apache Tomcat
+- PostgreSQL (or MySQL)
 - NetBeans IDE (recommended)
 
 ### Steps
@@ -92,11 +102,14 @@ Legacy Bank/
 │ │ ├─ logoutConfirm.java
 │ │ └─ signupConfirm.java
 │ └─ updatedb/
-│ └─ Updatedb.java
+│ ├─ Updaterow.java
+│ └─ Deleterow.java
 ├─ web/
 │ ├─ index.jsp
+│ ├─ signup.jsp
 │ ├─ account.jsp
-│ ├─ Confirmsignup.jsp
+│ ├─ Updatepage.jsp
+│ ├─ Deletepage.jsp
 │ ├─ css/
 │ ├─ js/
 │ ├─ images/
@@ -111,34 +124,33 @@ Legacy Bank/
 ---
 
 ## 🎯 Learning Objectives
-- Build Java web applications using JSP & Servlets
-- Implement authentication systems securely
-- Work with relational databases using JDBC
-- Integrate frontend technologies with backend Java
-- Understand MVC-style architecture
-- Practice full-stack Java development
+- Build full-stack Java web applications
+- Implement complete CRUD workflows
+- Secure user authentication using BCrypt
+- Work with relational databases via JDBC
+- Apply MVC-style separation
+- Improve UI/UX using frontend technologies
+- Manage sessions and validations securely
 
 ---
 
 ## 🔮 Planned Enhancements
-- 💳 Account balance & transaction handling
-- 🧾 Transaction history
-- 🔁 Fund transfers
-- 🛡️ Improved session management
-- ⚠️ Better exception handling & logging
-- 📱 UI/UX improvements
-- 🔐 Role-based access control
+- Role-based access control
+- Transaction history module
+- Input sanitization & stronger validation
+- Improved exception handling & logging
+- CSRF protection
+- UI responsiveness improvements
 
 ---
 
 ## 👤 Author
-**Koushik Karmakar** 
-B.Tech Civil Engineering Student 
+**Koushik Karmakar**  
+B.Tech Civil Engineering Student  
 Learning **Java Backend Development**, Databases & Full-Stack Web Applications
 
 ---
 
 ## 📌 Notes
-This project is part of my learning journey in Java web development. 
-The codebase will continue to evolve as new concepts and best practices are applied.
-
+This project is part of my hands-on learning journey in Java web development.  
+The codebase will continue to evolve as new backend and security concepts are applied.
