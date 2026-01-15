@@ -66,3 +66,72 @@ input[type="checkbox"]{
     height: 10px;
     width: 10px;
 }
+#update,#delete{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+#dlt_btn{
+    width: 32px;
+    height: 32px;
+    background: url("/images/delete_icon.png") no-repeat center;
+    background-size: 24px 24px;
+    border: none;
+    cursor: pointer;
+}
+#up_btn{
+    width: 32px;
+    height: 32px;
+    background: url("/images/update_icon.png") no-repeat center;
+    background-size: 24px 24px;
+    border: none;
+    cursor: pointer;
+}
+
+#btn_div{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;  
+    justify-content: center;
+}
+#btn_div img{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#btn_div a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#account_icon_del{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#account_icon_del img{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#account_icon_del a{
+    text-decoration: none;
+    color: #0047AB;
+    cursor: pointer;
+}
+#account_icon_up{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#account_icon_up img{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+#account_icon_up a{
+    text-decoration: none;
+    color: #0047AB;
+    cursor: pointer;
+}

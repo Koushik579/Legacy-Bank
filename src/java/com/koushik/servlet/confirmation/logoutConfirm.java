@@ -13,16 +13,6 @@ import jakarta.servlet.http.*;
  * @author Koushik
  */
 public class logoutConfirm extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -34,7 +24,7 @@ public class logoutConfirm extends HttpServlet {
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             response.setHeader("Pragma", "no-cache");
             response.setDateHeader("Expires", 0);
-            response.sendRedirect("index.jsp");
+            request.getRequestDispatcher("/web/index.jsp").forward(request, response);
         }
     }
 

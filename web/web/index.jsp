@@ -20,13 +20,21 @@
     </head>
     <body>
         <%
+            /*HttpSession ses = request.getSession(false);
+            if(ses != null && ses.getAttribute("username")!=null)
+            {
+                response.sendRedirect(request.getContextPath()+"/web/account.jsp");
+            }
+            else{
+                response.sendRedirect(request.getContextPath()+"/web/index.jsp");
+            }*/
             response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
             response.setHeader("Pragma", "no-cache");
             response.setDateHeader("Expires", 0);
         %>
 
         <div id="maincont">
-            <form action="signupConfirm" method="post">
+            <form action="<%= request.getContextPath()%>/signupConfirm" method="post">
                 <div id="signup" class="sign">
                     <h1 style="color: #5CC3FF; font-size: 20px; ">Signup</h1>
                     <input type="text" name="fname"  placeholder="First Name" required/>

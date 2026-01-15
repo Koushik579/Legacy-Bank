@@ -1,6 +1,6 @@
 <%-- 
-    Document   : account
-    Created on : Dec 18, 2025, 11:05:16 AM
+    Document   : Deletepage
+    Created on : Jan 15, 2026, 12:31:15 PM
     Author     : Koushik
 --%>
 
@@ -36,12 +36,9 @@
                 <h1 style="font-size: 35px; color: #0047AB"><u>Customers</u></h1>
             </div>
             <div>
-                <div id="btn_div">
-                    <a href="<%=request.getContextPath()%>/web/Updatepage.jsp" id="update"><img src="<%=request.getContextPath()%>/images/Update.png" width="32px" height="32px"/>
-                        <span style="color: #0047AB">Update</span>
-                    </a>
-                    <a href="<%=request.getContextPath()%>/web/Deletepage.jsp" id="delete"><img src="<%=request.getContextPath()%>/images/delete.png" width="32px" height="32px"/>
-                        <span style="color: red">Delete</span>
+                <div id="account_icon_del">
+                    <a href="<%=request.getContextPath()%>/web/account.jsp" >
+                        <img src="<%=request.getContextPath()%>/images/account_icon.png" width="32px" height="32px" title="Account Page"/>
                     </a>
                 </div>
                 <table>
@@ -57,13 +54,20 @@
                                 ResultSet rs = ps.executeQuery();
                                 while (rs.next()) {
                                     try {
+                                        out.println("<form action=\"" + request.getContextPath() + "/Deleterow\" method=\"post\">");
                                         out.println("<tr>");
-                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("uname") + "\" name=\"user\" style=\"width: 240px; cursor: not-allowed\" readonly/></td>");
-                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("fname") + "\" name=\"fstname\" style=\"width: 240px\"/></td>");
-                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("lname") + "\" name=\"lstname\" style=\"width: 240px\"/></td>");
-                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("email") + "\" name=\"emailid\" style=\"width: 240px\"/></td>");
-                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("phn") + "\" name=\"phone\" style=\"width: 240px\"/></td>");
+                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("uname") + "\" name=\"user\" style=\"width: 240px;\" readonly/></td>");
+                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("fname") + "\" name=\"fstname\" style=\"width: 240px\" readonly/></td>");
+                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("lname") + "\" name=\"lstname\" style=\"width: 240px\" readonly/></td>");
+                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("email") + "\" name=\"emailid\" style=\"width: 240px\" readonly/></td>");
+                                        out.println("<td><input type=\"text\" value=\"" + rs.getString("phn") + "\" name=\"phone\" style=\"width: 240px\" readonly/></td>");
+                                        out.println(
+                                                "<td><button type=\"submit\" id=\"up_btn\" "
+                                                + "style=\"background-image: url('" + request.getContextPath() + "/images/delete_icon.png');\" "
+                                                + "ariall-label=\"Update\" title=\"Delete\"></button></td>"
+                                        );
                                         out.println("</tr>");
+                                        out.println("</form>");
                                     } catch (Exception e) {
                                         String errormg = e.getMessage();
                                         out.println("<script>alert(\"" + errormg + "\")</script>");

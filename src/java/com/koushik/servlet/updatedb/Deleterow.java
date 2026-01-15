@@ -4,6 +4,7 @@
  */
 package com.koushik.servlet.updatedb;
 
+import com.koushik.jdbc.JdbcConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,17 +12,31 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.*;
-import com.koushik.servlet.updatedb.Updatedb;
+
 /**
  *
- * @author username
+ * @author Koushik
  */
-public class Updatedb extends HttpServlet {
+public class Deleterow extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<h1>UpdateDb Page</h1>");
+            Connection con = JdbcConnection.connect();
+            try {
+                con.setAutoCommit(false);
+                String uname = request.getParameter("user");
+                PreparedStatement ps = con.prepareStatement("delete from customers  where uname=?");
+                ps.setString(1, uname);
+                ps.executeUpdate();
+                con.commit();
+                request.getRequestDispatcher("/web/account.jsp").forward(request, response);
+            } catch (Exception e) {
+                con.rollback();
+                request.setAttribute("dberror", "No data Updated");
+                request.getRequestDispatcher("/web/account.jsp").forward(request, response);
+            }
         }
     }
 
@@ -37,7 +52,11 @@ public class Updatedb extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            System.getLogger(Deleterow.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }
 
     /**
@@ -51,7 +70,11 @@ public class Updatedb extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            System.getLogger(Deleterow.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }
 
     /**
