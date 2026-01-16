@@ -82,10 +82,27 @@ src/java/com/koushik/jdbc/JdbcConnection.java
 
 4. Ensure the database server is running
 5. Run the project on Tomcat
-6. Open in browser:
+6. Open in browser: http://localhost:8081/LegacyBank/
 
-http://localhost:8080/LegacyBank/
+⚠️ Deployment & Access Note
 
+This application runs on a local Apache Tomcat server and must be deployed before use.
+
+Deploy the project using NetBeans (Right-click → Run / Deploy)
+
+NetBeans will start Tomcat automatically
+
+The Tomcat port number (e.g. 8080, 8081) may differ on each system
+
+✅ Always use the exact URL shown in the browser after deployment.
+Do not assume a fixed port or context path.
+
+Example:
+
+http://localhost:8080/YourProjectName/
+
+
+This URL works only on your local machine unless the project is hosted on a live server.
 
 ---
 
